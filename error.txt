@@ -1,25 +1,43 @@
-s:~/saviors-lubkita/lubkita-landing# sudo docker build -t lubkita-app .
+root@vps:~/saviors-lubkita/lubkita-landing# sudo git pull origin main
+remote: Enumerating objects: 12, done.
+remote: Counting objects: 100% (12/12), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 7 (delta 4), reused 7 (delta 4), pack-reused 0 (from 0)
+Unpacking objects: 100% (7/7), 3.95 KiB | 288.00 KiB/s, done.
+From https://github.com/Jibranwafi/lubkita-landing
+ * branch            main       -> FETCH_HEAD
+   efebb74..f574419  main       -> origin/main
+Updating efebb74..f574419
+Fast-forward
+ Dockerfile        |  18 +++++-
+ error.txt         | 478 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ package-lock.json |  58 +++++++++++++++++--
+ package.json      |   1 +
+ svelte.config.js  |   3 +-
+ 5 files changed, 552 insertions(+), 6 deletions(-)
+ create mode 100644 error.txt
+root@vps:~/saviors-lubkita/lubkita-landing# sudo docker build -t lubkita-app .
 DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
             Install the buildx component to build images with BuildKit:
             https://docs.docker.com/go/buildx/
 
-Sending build context to Docker daemon  137.5MB
+Sending build context to Docker daemon  137.6MB
 Step 1/10 : FROM node:18 as build-stage
  ---> e3d72aca4924
 Step 2/10 : WORKDIR /app
  ---> Using cache
  ---> 24cd2c519080
 Step 3/10 : COPY package*.json ./
- ---> 9ebc1ad2ea49
+ ---> 6526504eac34
 Step 4/10 : RUN npm install
- ---> Running in 98db16d3af52
+ ---> Running in b2687a3ec7a8
 
-added 274 packages, and audited 275 packages in 16s
+added 275 packages, and audited 276 packages in 16s
 
 78 packages are looking for funding
   run `npm fund` for details
 
-3 low severity vulnerabilities
+4 low severity vulnerabilities
 
 To address all issues (including breaking changes), run:
   npm audit fix --force
@@ -30,12 +48,12 @@ npm notice New major version of npm available! 10.8.2 -> 11.0.0
 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.0.0
 npm notice To update run: npm install -g npm@11.0.0
 npm notice
- ---> Removed intermediate container 98db16d3af52
- ---> 2d1d29cc8678
+ ---> Removed intermediate container b2687a3ec7a8
+ ---> 284aea607623
 Step 5/10 : COPY . .
- ---> f12400fd21c2
+ ---> 3642bd76fcfe
 Step 6/10 : RUN npm run build
- ---> Running in db60b22746b6
+ ---> Running in bfea80d65bb5
 
 > lubkita-landing@0.0.1 build
 > vite build
@@ -48,7 +66,7 @@ Step 6/10 : RUN npm run build
 
 vite v5.4.11 building SSR bundle for production...
 transforming...
-6:18:49 AM [vite-plugin-svelte] src/routes/paket-kami/paket-gold/+page.svelte:8:4 Unused CSS selector "input"
+6:31:25 AM [vite-plugin-svelte] src/routes/paket-kami/paket-gold/+page.svelte:8:4 Unused CSS selector "input"
 https://svelte.dev/e/css_unused_selector
  6:   <style>
  7:     /* Svelte scopes styles automatically, no need for scoped attribute */
@@ -56,7 +74,7 @@ https://svelte.dev/e/css_unused_selector
              ^
  9:     padding: 0.75rem
 10: }
-6:18:49 AM [vite-plugin-svelte] src/routes/paket-kami/paket-gold/+page.svelte:8:11 Unused CSS selector "textarea"
+6:31:25 AM [vite-plugin-svelte] src/routes/paket-kami/paket-gold/+page.svelte:8:11 Unused CSS selector "textarea"
 https://svelte.dev/e/css_unused_selector
  6:   <style>
  7:     /* Svelte scopes styles automatically, no need for scoped attribute */
@@ -64,7 +82,7 @@ https://svelte.dev/e/css_unused_selector
                        ^
  9:     padding: 0.75rem
 10: }
-6:18:49 AM [vite-plugin-svelte] src/routes/paket-kami/paket-ldr/+page.svelte:8:4 Unused CSS selector "input"
+6:31:25 AM [vite-plugin-svelte] src/routes/paket-kami/paket-ldr/+page.svelte:8:4 Unused CSS selector "input"
 https://svelte.dev/e/css_unused_selector
  6:   <style>
  7:     /* Svelte scopes styles automatically, no need for scoped attribute */
@@ -72,7 +90,7 @@ https://svelte.dev/e/css_unused_selector
              ^
  9:     padding: 0.75rem
 10: }
-6:18:49 AM [vite-plugin-svelte] src/routes/paket-kami/paket-ldr/+page.svelte:8:11 Unused CSS selector "textarea"
+6:31:25 AM [vite-plugin-svelte] src/routes/paket-kami/paket-ldr/+page.svelte:8:11 Unused CSS selector "textarea"
 https://svelte.dev/e/css_unused_selector
  6:   <style>
  7:     /* Svelte scopes styles automatically, no need for scoped attribute */
@@ -80,7 +98,7 @@ https://svelte.dev/e/css_unused_selector
                        ^
  9:     padding: 0.75rem
 10: }
-6:18:49 AM [vite-plugin-svelte] src/routes/paket-kami/paket-platinum/+page.svelte:8:4 Unused CSS selector "input"
+6:31:25 AM [vite-plugin-svelte] src/routes/paket-kami/paket-platinum/+page.svelte:8:4 Unused CSS selector "input"
 https://svelte.dev/e/css_unused_selector
  6:   <style>
  7:     /* Svelte scopes styles automatically, no need for scoped attribute */
@@ -88,7 +106,7 @@ https://svelte.dev/e/css_unused_selector
              ^
  9:     padding: 0.75rem
 10: }
-6:18:49 AM [vite-plugin-svelte] src/routes/paket-kami/paket-platinum/+page.svelte:8:11 Unused CSS selector "textarea"
+6:31:25 AM [vite-plugin-svelte] src/routes/paket-kami/paket-platinum/+page.svelte:8:11 Unused CSS selector "textarea"
 https://svelte.dev/e/css_unused_selector
  6:   <style>
  7:     /* Svelte scopes styles automatically, no need for scoped attribute */
@@ -96,7 +114,7 @@ https://svelte.dev/e/css_unused_selector
                        ^
  9:     padding: 0.75rem
 10: }
-6:18:49 AM [vite-plugin-svelte] src/routes/pelatihan-digital/+page.svelte:8:4 Unused CSS selector "input"
+6:31:25 AM [vite-plugin-svelte] src/routes/pelatihan-digital/+page.svelte:8:4 Unused CSS selector "input"
 https://svelte.dev/e/css_unused_selector
  6:   <style>
  7:     /* Svelte scopes styles automatically, no need for scoped attribute */
@@ -104,7 +122,7 @@ https://svelte.dev/e/css_unused_selector
              ^
  9:     padding: 0.75rem
 10: }
-6:18:49 AM [vite-plugin-svelte] src/routes/pelatihan-digital/+page.svelte:8:11 Unused CSS selector "textarea"
+6:31:25 AM [vite-plugin-svelte] src/routes/pelatihan-digital/+page.svelte:8:11 Unused CSS selector "textarea"
 https://svelte.dev/e/css_unused_selector
  6:   <style>
  7:     /* Svelte scopes styles automatically, no need for scoped attribute */
@@ -112,7 +130,7 @@ https://svelte.dev/e/css_unused_selector
                        ^
  9:     padding: 0.75rem
 10: }
-6:18:49 AM [vite-plugin-svelte] src/routes/pendaftaran/+page.svelte:8:4 Unused CSS selector "input"
+6:31:25 AM [vite-plugin-svelte] src/routes/pendaftaran/+page.svelte:8:4 Unused CSS selector "input"
 https://svelte.dev/e/css_unused_selector
  6:   <style>
  7:     /* Svelte scopes styles automatically, no need for scoped attribute */
@@ -120,7 +138,7 @@ https://svelte.dev/e/css_unused_selector
              ^
  9:     padding: 0.75rem
 10: }
-6:18:49 AM [vite-plugin-svelte] src/routes/pendaftaran/+page.svelte:8:11 Unused CSS selector "textarea"
+6:31:25 AM [vite-plugin-svelte] src/routes/pendaftaran/+page.svelte:8:11 Unused CSS selector "textarea"
 https://svelte.dev/e/css_unused_selector
  6:   <style>
  7:     /* Svelte scopes styles automatically, no need for scoped attribute */
@@ -128,7 +146,7 @@ https://svelte.dev/e/css_unused_selector
                        ^
  9:     padding: 0.75rem
 10: }
-6:18:49 AM [vite-plugin-svelte] src/routes/syarat-ketentuan/+page.svelte:8:4 Unused CSS selector "input"
+6:31:25 AM [vite-plugin-svelte] src/routes/syarat-ketentuan/+page.svelte:8:4 Unused CSS selector "input"
 https://svelte.dev/e/css_unused_selector
  6:   <style>
  7:     /* Svelte scopes styles automatically, no need for scoped attribute */
@@ -136,7 +154,7 @@ https://svelte.dev/e/css_unused_selector
              ^
  9:     padding: 0.75rem
 10: }
-6:18:49 AM [vite-plugin-svelte] src/routes/syarat-ketentuan/+page.svelte:8:11 Unused CSS selector "textarea"
+6:31:25 AM [vite-plugin-svelte] src/routes/syarat-ketentuan/+page.svelte:8:11 Unused CSS selector "textarea"
 https://svelte.dev/e/css_unused_selector
  6:   <style>
  7:     /* Svelte scopes styles automatically, no need for scoped attribute */
@@ -144,7 +162,7 @@ https://svelte.dev/e/css_unused_selector
                        ^
  9:     padding: 0.75rem
 10: }
-6:18:49 AM [vite-plugin-svelte] src/routes/tentang-kami/lubkita-com/+page.svelte:8:4 Unused CSS selector "input"
+6:31:25 AM [vite-plugin-svelte] src/routes/tentang-kami/lumbung-digital-rakyat/+page.svelte:8:4 Unused CSS selector "input"
 https://svelte.dev/e/css_unused_selector
  6:   <style>
  7:     /* Svelte scopes styles automatically, no need for scoped attribute */
@@ -152,7 +170,7 @@ https://svelte.dev/e/css_unused_selector
              ^
  9:     padding: 0.75rem
 10: }
-6:18:49 AM [vite-plugin-svelte] src/routes/tentang-kami/lubkita-com/+page.svelte:8:11 Unused CSS selector "textarea"
+6:31:25 AM [vite-plugin-svelte] src/routes/tentang-kami/lumbung-digital-rakyat/+page.svelte:8:11 Unused CSS selector "textarea"
 https://svelte.dev/e/css_unused_selector
  6:   <style>
  7:     /* Svelte scopes styles automatically, no need for scoped attribute */
@@ -160,7 +178,7 @@ https://svelte.dev/e/css_unused_selector
                        ^
  9:     padding: 0.75rem
 10: }
-6:18:49 AM [vite-plugin-svelte] src/routes/tentang-kami/lumbung-digital-rakyat/+page.svelte:8:4 Unused CSS selector "input"
+6:31:25 AM [vite-plugin-svelte] src/routes/tentang-kami/lubkita-com/+page.svelte:8:4 Unused CSS selector "input"
 https://svelte.dev/e/css_unused_selector
  6:   <style>
  7:     /* Svelte scopes styles automatically, no need for scoped attribute */
@@ -168,7 +186,7 @@ https://svelte.dev/e/css_unused_selector
              ^
  9:     padding: 0.75rem
 10: }
-6:18:49 AM [vite-plugin-svelte] src/routes/tentang-kami/lumbung-digital-rakyat/+page.svelte:8:11 Unused CSS selector "textarea"
+6:31:25 AM [vite-plugin-svelte] src/routes/tentang-kami/lubkita-com/+page.svelte:8:11 Unused CSS selector "textarea"
 https://svelte.dev/e/css_unused_selector
  6:   <style>
  7:     /* Svelte scopes styles automatically, no need for scoped attribute */
@@ -176,7 +194,7 @@ https://svelte.dev/e/css_unused_selector
                        ^
  9:     padding: 0.75rem
 10: }
-6:18:49 AM [vite-plugin-svelte] src/routes/tentang-kami/pt-lubkita/+page.svelte:8:4 Unused CSS selector "input"
+6:31:25 AM [vite-plugin-svelte] src/routes/tentang-kami/pt-lubkita/+page.svelte:8:4 Unused CSS selector "input"
 https://svelte.dev/e/css_unused_selector
  6:   <style>
  7:     /* Svelte scopes styles automatically, no need for scoped attribute */
@@ -184,7 +202,7 @@ https://svelte.dev/e/css_unused_selector
              ^
  9:     padding: 0.75rem
 10: }
-6:18:49 AM [vite-plugin-svelte] src/routes/tentang-kami/pt-lubkita/+page.svelte:8:11 Unused CSS selector "textarea"
+6:31:25 AM [vite-plugin-svelte] src/routes/tentang-kami/pt-lubkita/+page.svelte:8:11 Unused CSS selector "textarea"
 https://svelte.dev/e/css_unused_selector
  6:   <style>
  7:     /* Svelte scopes styles automatically, no need for scoped attribute */
@@ -192,7 +210,7 @@ https://svelte.dev/e/css_unused_selector
                        ^
  9:     padding: 0.75rem
 10: }
-6:18:49 AM [vite-plugin-svelte] src/routes/tentang-kami/visi-misi/+page.svelte:8:4 Unused CSS selector "input"
+6:31:25 AM [vite-plugin-svelte] src/routes/tentang-kami/visi-misi/+page.svelte:8:4 Unused CSS selector "input"
 https://svelte.dev/e/css_unused_selector
  6:   <style>
  7:     /* Svelte scopes styles automatically, no need for scoped attribute */
@@ -200,7 +218,7 @@ https://svelte.dev/e/css_unused_selector
              ^
  9:     padding: 0.75rem
 10: }
-6:18:49 AM [vite-plugin-svelte] src/routes/tentang-kami/visi-misi/+page.svelte:8:11 Unused CSS selector "textarea"
+6:31:25 AM [vite-plugin-svelte] src/routes/tentang-kami/visi-misi/+page.svelte:8:11 Unused CSS selector "textarea"
 https://svelte.dev/e/css_unused_selector
  6:   <style>
  7:     /* Svelte scopes styles automatically, no need for scoped attribute */
@@ -208,7 +226,7 @@ https://svelte.dev/e/css_unused_selector
                        ^
  9:     padding: 0.75rem
 10: }
-6:18:49 AM [vite-plugin-svelte] src/routes/+page.svelte:173:4 Unused CSS selector "input"
+6:31:25 AM [vite-plugin-svelte] src/routes/+page.svelte:173:4 Unused CSS selector "input"
 https://svelte.dev/e/css_unused_selector
 171:   <style>
 172:     /* Svelte scopes styles automatically, no need for scoped attribute */
@@ -216,7 +234,7 @@ https://svelte.dev/e/css_unused_selector
               ^
 174:     padding: 0.75rem
 175: }
-6:18:49 AM [vite-plugin-svelte] src/routes/+page.svelte:173:11 Unused CSS selector "textarea"
+6:31:25 AM [vite-plugin-svelte] src/routes/+page.svelte:173:11 Unused CSS selector "textarea"
 https://svelte.dev/e/css_unused_selector
 171:   <style>
 172:     /* Svelte scopes styles automatically, no need for scoped attribute */
@@ -228,7 +246,7 @@ https://svelte.dev/e/css_unused_selector
 rendering chunks...
 vite v5.4.11 building for production...
 transforming...
-6:18:54 AM [vite-plugin-svelte] src/routes/paket-kami/paket-gold/+page.svelte:8:4 Unused CSS selector "input"
+6:31:29 AM [vite-plugin-svelte] src/routes/paket-kami/paket-gold/+page.svelte:8:4 Unused CSS selector "input"
 https://svelte.dev/e/css_unused_selector
  6:   <style>
  7:     /* Svelte scopes styles automatically, no need for scoped attribute */
@@ -236,7 +254,7 @@ https://svelte.dev/e/css_unused_selector
              ^
  9:     padding: 0.75rem
 10: }
-6:18:54 AM [vite-plugin-svelte] src/routes/paket-kami/paket-gold/+page.svelte:8:11 Unused CSS selector "textarea"
+6:31:29 AM [vite-plugin-svelte] src/routes/paket-kami/paket-gold/+page.svelte:8:11 Unused CSS selector "textarea"
 https://svelte.dev/e/css_unused_selector
  6:   <style>
  7:     /* Svelte scopes styles automatically, no need for scoped attribute */
@@ -244,7 +262,7 @@ https://svelte.dev/e/css_unused_selector
                        ^
  9:     padding: 0.75rem
 10: }
-6:18:54 AM [vite-plugin-svelte] src/routes/paket-kami/paket-ldr/+page.svelte:8:4 Unused CSS selector "input"
+6:31:29 AM [vite-plugin-svelte] src/routes/paket-kami/paket-ldr/+page.svelte:8:4 Unused CSS selector "input"
 https://svelte.dev/e/css_unused_selector
  6:   <style>
  7:     /* Svelte scopes styles automatically, no need for scoped attribute */
@@ -252,7 +270,7 @@ https://svelte.dev/e/css_unused_selector
              ^
  9:     padding: 0.75rem
 10: }
-6:18:54 AM [vite-plugin-svelte] src/routes/paket-kami/paket-ldr/+page.svelte:8:11 Unused CSS selector "textarea"
+6:31:29 AM [vite-plugin-svelte] src/routes/paket-kami/paket-ldr/+page.svelte:8:11 Unused CSS selector "textarea"
 https://svelte.dev/e/css_unused_selector
  6:   <style>
  7:     /* Svelte scopes styles automatically, no need for scoped attribute */
@@ -260,7 +278,7 @@ https://svelte.dev/e/css_unused_selector
                        ^
  9:     padding: 0.75rem
 10: }
-6:18:54 AM [vite-plugin-svelte] src/routes/paket-kami/paket-platinum/+page.svelte:8:4 Unused CSS selector "input"
+6:31:29 AM [vite-plugin-svelte] src/routes/paket-kami/paket-platinum/+page.svelte:8:4 Unused CSS selector "input"
 https://svelte.dev/e/css_unused_selector
  6:   <style>
  7:     /* Svelte scopes styles automatically, no need for scoped attribute */
@@ -268,7 +286,7 @@ https://svelte.dev/e/css_unused_selector
              ^
  9:     padding: 0.75rem
 10: }
-6:18:54 AM [vite-plugin-svelte] src/routes/paket-kami/paket-platinum/+page.svelte:8:11 Unused CSS selector "textarea"
+6:31:29 AM [vite-plugin-svelte] src/routes/paket-kami/paket-platinum/+page.svelte:8:11 Unused CSS selector "textarea"
 https://svelte.dev/e/css_unused_selector
  6:   <style>
  7:     /* Svelte scopes styles automatically, no need for scoped attribute */
@@ -276,7 +294,7 @@ https://svelte.dev/e/css_unused_selector
                        ^
  9:     padding: 0.75rem
 10: }
-6:18:54 AM [vite-plugin-svelte] src/routes/pelatihan-digital/+page.svelte:8:4 Unused CSS selector "input"
+6:31:29 AM [vite-plugin-svelte] src/routes/pelatihan-digital/+page.svelte:8:4 Unused CSS selector "input"
 https://svelte.dev/e/css_unused_selector
  6:   <style>
  7:     /* Svelte scopes styles automatically, no need for scoped attribute */
@@ -284,7 +302,7 @@ https://svelte.dev/e/css_unused_selector
              ^
  9:     padding: 0.75rem
 10: }
-6:18:54 AM [vite-plugin-svelte] src/routes/pelatihan-digital/+page.svelte:8:11 Unused CSS selector "textarea"
+6:31:29 AM [vite-plugin-svelte] src/routes/pelatihan-digital/+page.svelte:8:11 Unused CSS selector "textarea"
 https://svelte.dev/e/css_unused_selector
  6:   <style>
  7:     /* Svelte scopes styles automatically, no need for scoped attribute */
@@ -292,7 +310,7 @@ https://svelte.dev/e/css_unused_selector
                        ^
  9:     padding: 0.75rem
 10: }
-6:18:54 AM [vite-plugin-svelte] src/routes/pendaftaran/+page.svelte:8:4 Unused CSS selector "input"
+6:31:29 AM [vite-plugin-svelte] src/routes/pendaftaran/+page.svelte:8:4 Unused CSS selector "input"
 https://svelte.dev/e/css_unused_selector
  6:   <style>
  7:     /* Svelte scopes styles automatically, no need for scoped attribute */
@@ -300,7 +318,7 @@ https://svelte.dev/e/css_unused_selector
              ^
  9:     padding: 0.75rem
 10: }
-6:18:54 AM [vite-plugin-svelte] src/routes/pendaftaran/+page.svelte:8:11 Unused CSS selector "textarea"
+6:31:29 AM [vite-plugin-svelte] src/routes/pendaftaran/+page.svelte:8:11 Unused CSS selector "textarea"
 https://svelte.dev/e/css_unused_selector
  6:   <style>
  7:     /* Svelte scopes styles automatically, no need for scoped attribute */
@@ -308,7 +326,7 @@ https://svelte.dev/e/css_unused_selector
                        ^
  9:     padding: 0.75rem
 10: }
-6:18:54 AM [vite-plugin-svelte] src/routes/syarat-ketentuan/+page.svelte:8:4 Unused CSS selector "input"
+6:31:29 AM [vite-plugin-svelte] src/routes/syarat-ketentuan/+page.svelte:8:4 Unused CSS selector "input"
 https://svelte.dev/e/css_unused_selector
  6:   <style>
  7:     /* Svelte scopes styles automatically, no need for scoped attribute */
@@ -316,7 +334,7 @@ https://svelte.dev/e/css_unused_selector
              ^
  9:     padding: 0.75rem
 10: }
-6:18:54 AM [vite-plugin-svelte] src/routes/syarat-ketentuan/+page.svelte:8:11 Unused CSS selector "textarea"
+6:31:29 AM [vite-plugin-svelte] src/routes/syarat-ketentuan/+page.svelte:8:11 Unused CSS selector "textarea"
 https://svelte.dev/e/css_unused_selector
  6:   <style>
  7:     /* Svelte scopes styles automatically, no need for scoped attribute */
@@ -324,7 +342,7 @@ https://svelte.dev/e/css_unused_selector
                        ^
  9:     padding: 0.75rem
 10: }
-6:18:54 AM [vite-plugin-svelte] src/routes/tentang-kami/lubkita-com/+page.svelte:8:4 Unused CSS selector "input"
+6:31:29 AM [vite-plugin-svelte] src/routes/tentang-kami/lubkita-com/+page.svelte:8:4 Unused CSS selector "input"
 https://svelte.dev/e/css_unused_selector
  6:   <style>
  7:     /* Svelte scopes styles automatically, no need for scoped attribute */
@@ -332,7 +350,7 @@ https://svelte.dev/e/css_unused_selector
              ^
  9:     padding: 0.75rem
 10: }
-6:18:54 AM [vite-plugin-svelte] src/routes/tentang-kami/lubkita-com/+page.svelte:8:11 Unused CSS selector "textarea"
+6:31:29 AM [vite-plugin-svelte] src/routes/tentang-kami/lubkita-com/+page.svelte:8:11 Unused CSS selector "textarea"
 https://svelte.dev/e/css_unused_selector
  6:   <style>
  7:     /* Svelte scopes styles automatically, no need for scoped attribute */
@@ -340,7 +358,7 @@ https://svelte.dev/e/css_unused_selector
                        ^
  9:     padding: 0.75rem
 10: }
-6:18:54 AM [vite-plugin-svelte] src/routes/tentang-kami/lumbung-digital-rakyat/+page.svelte:8:4 Unused CSS selector "input"
+6:31:29 AM [vite-plugin-svelte] src/routes/tentang-kami/lumbung-digital-rakyat/+page.svelte:8:4 Unused CSS selector "input"
 https://svelte.dev/e/css_unused_selector
  6:   <style>
  7:     /* Svelte scopes styles automatically, no need for scoped attribute */
@@ -348,7 +366,7 @@ https://svelte.dev/e/css_unused_selector
              ^
  9:     padding: 0.75rem
 10: }
-6:18:54 AM [vite-plugin-svelte] src/routes/tentang-kami/lumbung-digital-rakyat/+page.svelte:8:11 Unused CSS selector "textarea"
+6:31:29 AM [vite-plugin-svelte] src/routes/tentang-kami/lumbung-digital-rakyat/+page.svelte:8:11 Unused CSS selector "textarea"
 https://svelte.dev/e/css_unused_selector
  6:   <style>
  7:     /* Svelte scopes styles automatically, no need for scoped attribute */
@@ -356,7 +374,7 @@ https://svelte.dev/e/css_unused_selector
                        ^
  9:     padding: 0.75rem
 10: }
-6:18:54 AM [vite-plugin-svelte] src/routes/tentang-kami/pt-lubkita/+page.svelte:8:4 Unused CSS selector "input"
+6:31:29 AM [vite-plugin-svelte] src/routes/tentang-kami/pt-lubkita/+page.svelte:8:4 Unused CSS selector "input"
 https://svelte.dev/e/css_unused_selector
  6:   <style>
  7:     /* Svelte scopes styles automatically, no need for scoped attribute */
@@ -364,7 +382,7 @@ https://svelte.dev/e/css_unused_selector
              ^
  9:     padding: 0.75rem
 10: }
-6:18:54 AM [vite-plugin-svelte] src/routes/tentang-kami/pt-lubkita/+page.svelte:8:11 Unused CSS selector "textarea"
+6:31:29 AM [vite-plugin-svelte] src/routes/tentang-kami/pt-lubkita/+page.svelte:8:11 Unused CSS selector "textarea"
 https://svelte.dev/e/css_unused_selector
  6:   <style>
  7:     /* Svelte scopes styles automatically, no need for scoped attribute */
@@ -372,7 +390,7 @@ https://svelte.dev/e/css_unused_selector
                        ^
  9:     padding: 0.75rem
 10: }
-6:18:54 AM [vite-plugin-svelte] src/routes/tentang-kami/visi-misi/+page.svelte:8:4 Unused CSS selector "input"
+6:31:29 AM [vite-plugin-svelte] src/routes/tentang-kami/visi-misi/+page.svelte:8:4 Unused CSS selector "input"
 https://svelte.dev/e/css_unused_selector
  6:   <style>
  7:     /* Svelte scopes styles automatically, no need for scoped attribute */
@@ -380,7 +398,7 @@ https://svelte.dev/e/css_unused_selector
              ^
  9:     padding: 0.75rem
 10: }
-6:18:54 AM [vite-plugin-svelte] src/routes/tentang-kami/visi-misi/+page.svelte:8:11 Unused CSS selector "textarea"
+6:31:29 AM [vite-plugin-svelte] src/routes/tentang-kami/visi-misi/+page.svelte:8:11 Unused CSS selector "textarea"
 https://svelte.dev/e/css_unused_selector
  6:   <style>
  7:     /* Svelte scopes styles automatically, no need for scoped attribute */
@@ -388,7 +406,7 @@ https://svelte.dev/e/css_unused_selector
                        ^
  9:     padding: 0.75rem
 10: }
-6:18:54 AM [vite-plugin-svelte] src/routes/+page.svelte:173:4 Unused CSS selector "input"
+6:31:29 AM [vite-plugin-svelte] src/routes/+page.svelte:173:4 Unused CSS selector "input"
 https://svelte.dev/e/css_unused_selector
 171:   <style>
 172:     /* Svelte scopes styles automatically, no need for scoped attribute */
@@ -396,7 +414,7 @@ https://svelte.dev/e/css_unused_selector
               ^
 174:     padding: 0.75rem
 175: }
-6:18:54 AM [vite-plugin-svelte] src/routes/+page.svelte:173:11 Unused CSS selector "textarea"
+6:31:29 AM [vite-plugin-svelte] src/routes/+page.svelte:173:11 Unused CSS selector "textarea"
 https://svelte.dev/e/css_unused_selector
 171:   <style>
 172:     /* Svelte scopes styles automatically, no need for scoped attribute */
@@ -412,7 +430,7 @@ computing gzip size...
 .svelte-kit/output/client/_app/immutable/assets/2.tn0RQdqM.css                 0.00 kB │ gzip:  0.02 kB
 .svelte-kit/output/client/_app/immutable/assets/0.BxaNE3kv.css                20.57 kB │ gzip:  4.63 kB
 .svelte-kit/output/client/_app/immutable/chunks/legacy.DJLGiEOm.js             0.05 kB │ gzip:  0.07 kB
-.svelte-kit/output/client/_app/immutable/entry/start.BGSXCbiV.js               0.07 kB │ gzip:  0.08 kB
+.svelte-kit/output/client/_app/immutable/entry/start.BqTdM3Lw.js               0.07 kB │ gzip:  0.08 kB
 .svelte-kit/output/client/_app/immutable/nodes/6.DypvBUoL.js                   0.22 kB │ gzip:  0.20 kB
 .svelte-kit/output/client/_app/immutable/nodes/5.Cnguprrt.js                   0.22 kB │ gzip:  0.20 kB
 .svelte-kit/output/client/_app/immutable/nodes/13.CwTkUQDc.js                  0.22 kB │ gzip:  0.20 kB
@@ -427,17 +445,17 @@ computing gzip size...
 .svelte-kit/output/client/_app/immutable/chunks/index-client.DWq_VCp_.js       0.33 kB │ gzip:  0.26 kB
 .svelte-kit/output/client/_app/immutable/chunks/if.DpN8VEi2.js                 0.49 kB │ gzip:  0.34 kB
 .svelte-kit/output/client/_app/immutable/chunks/disclose-version.mqgyRua4.js   0.98 kB │ gzip:  0.56 kB
-.svelte-kit/output/client/_app/immutable/nodes/1.Bbpa7uzM.js                   1.26 kB │ gzip:  0.69 kB
+.svelte-kit/output/client/_app/immutable/nodes/1.DbwEUg57.js                   1.26 kB │ gzip:  0.69 kB
 .svelte-kit/output/client/_app/immutable/chunks/render.LYdQYTXl.js             1.72 kB │ gzip:  0.98 kB
 .svelte-kit/output/client/_app/immutable/chunks/events.zJRSOi-E.js             1.78 kB │ gzip:  0.98 kB
 .svelte-kit/output/client/_app/immutable/nodes/2.IH_eCAW0.js                   3.11 kB │ gzip:  1.18 kB
 .svelte-kit/output/client/_app/immutable/nodes/4.CAAYxBBU.js                   4.22 kB │ gzip:  1.84 kB
 .svelte-kit/output/client/_app/immutable/nodes/3.D4dnb0iL.js                   4.29 kB │ gzip:  2.25 kB
 .svelte-kit/output/client/_app/immutable/nodes/0.IFTSOGKL.js                   6.26 kB │ gzip:  1.83 kB
-.svelte-kit/output/client/_app/immutable/entry/app.DnbviGku.js                11.13 kB │ gzip:  4.70 kB
+.svelte-kit/output/client/_app/immutable/entry/app.CxmqIlal.js                11.13 kB │ gzip:  4.70 kB
 .svelte-kit/output/client/_app/immutable/chunks/runtime.fDP9zvxj.js           13.18 kB │ gzip:  5.37 kB
-.svelte-kit/output/client/_app/immutable/chunks/entry.DdJu9jUm.js             31.38 kB │ gzip: 12.27 kB
-✓ built in 3.63s
+.svelte-kit/output/client/_app/immutable/chunks/entry.DbY5r2Tp.js             31.38 kB │ gzip: 12.27 kB
+✓ built in 3.19s
 .svelte-kit/output/server/.vite/manifest.json                                                 5.87 kB
 .svelte-kit/output/server/_app/immutable/assets/_page.tn0RQdqM.css                            0.00 kB
 .svelte-kit/output/server/_app/immutable/assets/_layout.BxaNE3kv.css                         20.57 kB
@@ -463,16 +481,42 @@ computing gzip size...
 .svelte-kit/output/server/chunks/exports.js                                                   7.54 kB
 .svelte-kit/output/server/chunks/internal.js                                                 43.27 kB
 .svelte-kit/output/server/index.js                                                           95.87 kB
-✓ built in 11.96s
+✓ built in 11.33s
 
 Run npm run preview to preview your production build locally.
 
-> Using @sveltejs/adapter-auto
-  Could not detect a supported production environment. See https://svelte.dev/docs/kit/adapters to learn how to configure your app to run on the platform of your choosing
-  ✔ done
- ---> Removed intermediate container db60b22746b6
- ---> f6a7f00da6eb
-Step 7/10 : FROM nginx:stable-alpine as production-stage
- ---> 4ebaceb1bd2e
-Step 8/10 : COPY --from=build-stage /app/build /usr/share/nginx/html
-COPY failed: stat app/build: file does not exist
+> Using @sveltejs/adapter-static
+  @sveltejs/adapter-static: all routes must be fully prerenderable, but found the following routes that are dynamic:
+    - src/routes/
+    - src/routes/about
+    - src/routes/contact
+    - src/routes/paket-kami/paket-gold
+    - src/routes/paket-kami/paket-ldr
+    - src/routes/paket-kami/paket-platinum
+    - src/routes/pelatihan-digital
+    - src/routes/pendaftaran
+    - src/routes/syarat-ketentuan
+    - src/routes/tentang-kami/lubkita-com
+    - src/routes/tentang-kami/lumbung-digital-rakyat
+    - src/routes/tentang-kami/pt-lubkita
+    - src/routes/tentang-kami/visi-misi
+  
+  You have the following options:
+    - set the `fallback` option — see https://svelte.dev/docs/kit/single-page-apps#usage for more info.
+    - add `export const prerender = true` to your root `+layout.js/.ts` or `+layout.server.js/.ts` file. This will try to prerender all pages.
+    - add `export const prerender = true` to any `+server.js/ts` files that are not fetched by page `load` functions.
+  
+    - pass `strict: false` to `adapter-static` to ignore this error. Only do this if you are sure you don't need the routes in question in your final app, as they will be unavailable. See https://github.com/sveltejs/kit/tree/main/packages/adapter-static#strict for more info.
+  
+  If this doesn't help, you may need to use a different adapter. @sveltejs/adapter-static can only be used for sites that don't need a server for dynamic rendering, and can run on just a static file server.
+  See https://svelte.dev/docs/kit/page-options#prerender for more details
+error during build:
+Error: Encountered dynamic routes
+    at adapt (file:///app/node_modules/@sveltejs/adapter-static/index.js:38:12)
+    at adapt (file:///app/node_modules/@sveltejs/kit/src/core/adapt/index.js:38:8)
+    at finalise (file:///app/node_modules/@sveltejs/kit/src/exports/vite/index.js:974:13)
+    at async Object.handler (file:///app/node_modules/@sveltejs/kit/src/exports/vite/index.js:1004:5)
+    at async PluginDriver.hookParallel (file:///app/node_modules/rollup/dist/es/shared/node-entry.js:20858:17)
+    at async Object.close (file:///app/node_modules/rollup/dist/es/shared/node-entry.js:21836:13)
+    at async build (file:///app/node_modules/vite/dist/node/chunks/dep-CB_7IfJ-.js:65466:17)
+    at async CAC.<anonymous> (file:///app/node_modules/vite/dist/node/cli.js:828:5)

@@ -59,7 +59,7 @@
 
 
 
-            <a href="/pelatihan-ldr" class="flex w-full md:w-1/3 hover:bg-slate-300 mb-4 md:mb-0">
+            <a href="/pelatihan-digital" class="flex w-full md:w-1/3 hover:bg-slate-300 mb-4 md:mb-0">
                 <div class="p-2 w-1/5">
                     <img src="/page-home-pelatihan-icon.png" alt="pelatihan" class="h-12 w-12 md:h-16 md:w-16 mx-auto">
                 </div>
